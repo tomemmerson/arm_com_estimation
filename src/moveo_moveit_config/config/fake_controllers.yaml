@@ -1,0 +1,15 @@
+rate: 100
+fake_interpolating_controller_rate: 100
+controller_list:
+  - name: fake_arm_controller
+    type: interpolate
+    joints:
+      - Joint_1
+      - Joint_2
+      - Joint_3
+      - Joint_4
+      - Joint_5
+  - name: fake_gripper_controller
+    joints:
+      - Gripper_Idol_Gear_Joint
+      - Gripper_Servo_Gear_Joint
