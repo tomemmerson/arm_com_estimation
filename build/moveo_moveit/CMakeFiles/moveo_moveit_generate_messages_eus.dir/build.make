@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/tom/Documents/robot/build
 include moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_eus.dir/progress.make
 
 moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_eus: /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg/ArmJointState.l
+moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_eus: /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg/GripperState.l
 moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_eus: /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/manifest.l
 
 
@@ -62,12 +63,18 @@ moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_eus: /home/tom/Documents/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from moveo_moveit/ArmJointState.msg"
 	cd /home/tom/Documents/robot/build/moveo_moveit && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg -Imoveo_moveit:/home/tom/Documents/robot/src/moveo_moveit/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p moveo_moveit -o /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg
 
+/home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg/GripperState.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg/GripperState.l: /home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from moveo_moveit/GripperState.msg"
+	cd /home/tom/Documents/robot/build/moveo_moveit && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg -Imoveo_moveit:/home/tom/Documents/robot/src/moveo_moveit/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p moveo_moveit -o /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg
+
 /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for moveo_moveit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for moveo_moveit"
 	cd /home/tom/Documents/robot/build/moveo_moveit && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit moveo_moveit sensor_msgs std_msgs
 
 moveo_moveit_generate_messages_eus: moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_eus
 moveo_moveit_generate_messages_eus: /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg/ArmJointState.l
+moveo_moveit_generate_messages_eus: /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg/GripperState.l
 moveo_moveit_generate_messages_eus: /home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/manifest.l
 moveo_moveit_generate_messages_eus: moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_eus.dir/build.make
 

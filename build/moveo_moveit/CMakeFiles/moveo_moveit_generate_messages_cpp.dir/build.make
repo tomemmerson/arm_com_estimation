@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/tom/Documents/robot/build
 include moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_cpp.dir/progress.make
 
 moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_cpp: /home/tom/Documents/robot/devel/include/moveo_moveit/ArmJointState.h
+moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_cpp: /home/tom/Documents/robot/devel/include/moveo_moveit/GripperState.h
 
 
 /home/tom/Documents/robot/devel/include/moveo_moveit/ArmJointState.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
@@ -62,8 +63,15 @@ moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_cpp: /home/tom/Documents/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from moveo_moveit/ArmJointState.msg"
 	cd /home/tom/Documents/robot/src/moveo_moveit && /home/tom/Documents/robot/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg -Imoveo_moveit:/home/tom/Documents/robot/src/moveo_moveit/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p moveo_moveit -o /home/tom/Documents/robot/devel/include/moveo_moveit -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/home/tom/Documents/robot/devel/include/moveo_moveit/GripperState.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/tom/Documents/robot/devel/include/moveo_moveit/GripperState.h: /home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg
+/home/tom/Documents/robot/devel/include/moveo_moveit/GripperState.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from moveo_moveit/GripperState.msg"
+	cd /home/tom/Documents/robot/src/moveo_moveit && /home/tom/Documents/robot/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg -Imoveo_moveit:/home/tom/Documents/robot/src/moveo_moveit/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p moveo_moveit -o /home/tom/Documents/robot/devel/include/moveo_moveit -e /opt/ros/noetic/share/gencpp/cmake/..
+
 moveo_moveit_generate_messages_cpp: moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_cpp
 moveo_moveit_generate_messages_cpp: /home/tom/Documents/robot/devel/include/moveo_moveit/ArmJointState.h
+moveo_moveit_generate_messages_cpp: /home/tom/Documents/robot/devel/include/moveo_moveit/GripperState.h
 moveo_moveit_generate_messages_cpp: moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_cpp.dir/build.make
 
 .PHONY : moveo_moveit_generate_messages_cpp

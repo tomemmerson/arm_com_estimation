@@ -19,12 +19,15 @@
 #include <ros.h>
 
 #include <moveo_moveit/ArmJointState.h>
+
+#include <moveo_moveit/GripperState.h>
 #include <Servo.h> 
 #include <std_msgs/Bool.h>
 #include <std_msgs/String.h>
 #include <math.h>
 #include <std_msgs/Int16.h>
 #include <std_msgs/UInt16.h>
+#include <std_msgs/UInt16MultiArray.h>
 #include <AccelStepper.h>
 #include <MultiStepper.h>
 
@@ -71,9 +74,11 @@ int joint_status = 0;
 
 ros::NodeHandle nh;
 std_msgs::Int16 msg;
+moveo_moveit::GripperState gripState;
 
 //instantiate publisher (for debugging purposes)
 //ros::Publisher steps("joint_steps_feedback",&msg);
+ros::Publisher feed("gripper_state",&gripState);
 
 void arm_cb(const moveo_moveit::ArmJointState& arm_steps){
   joint_status = 1;
@@ -90,6 +95,13 @@ void gripper_cb( const std_msgs::UInt16& cmd_msg){
   digitalWrite(13, HIGH-digitalRead(13));  // Toggle led  
 }
 
+void pubGripState() {
+  gripState.leftX = 10
+  gripState.leftY = 14
+
+  feed.publish(&gripState)
+}
+
 //instantiate subscribers
 ros::Subscriber<moveo_moveit::ArmJointState> arm_sub("joint_steps",arm_cb); //subscribes to joint_steps on arm
 ros::Subscriber<std_msgs::UInt16> gripper_sub("gripper_angle", gripper_cb); //subscribes to gripper position
@@ -104,14 +116,14 @@ void setup() {
   nh.initNode();
   nh.subscribe(arm_sub);
   nh.subscribe(gripper_sub);
-  //nh.advertise(steps);
+  nh.advertise(feed);
 
   // Configure each stepper
   joint1.setMaxSpeed(1500);
   joint2.setMaxSpeed(750);
   joint3.setMaxSpeed(2000);
-  joint4.setMaxSpeed(500);
-  joint5.setMaxSpeed(1000);
+  joint4.setMaxSpeed(400);
+  joint5.setMaxSpeed(400);
 
   // Then give them to MultiStepper to manage
   steppers.addStepper(joint1);
@@ -122,32 +134,38 @@ void setup() {
 
   // Configure gripper servo
   gripper.attach(11);
+  gripper.write(50);
   
   digitalWrite(13, 1); //toggle led
+
+  long positions[5];  // Array of desired stepper positions must be long
+  positions[0] = 0; // negated since the real robot rotates in the opposite direction as ROS
+  positions[1] = 0; 
+  positions[2] = 0; 
+  positions[3] = 400; 
+  positions[4] = 800; 
+
+  steppers.moveTo(positions);
+  steppers.runSpeedToPosition();
 }
 
 void loop() {
-  if (joint_status == 1) // If command callback (arm_cb) is being called, execute stepper command
-  { 
-    long positions[5];  // Array of desired stepper positions must be long
-    positions[0] = joint_step[0]; // negated since the real robot rotates in the opposite direction as ROS
-    positions[1] = joint_step[1]; 
-    positions[2] = -joint_step[2]; 
-    positions[3] = joint_step[3]; 
-    positions[4] = -joint_step[4]; 
+  long positions[5];  // Array of desired stepper positions must be long
+  positions[0] = joint_step[0]; // negated since the real robot rotates in the opposite direction as ROS
+  positions[1] = joint_step[1]; 
+  positions[2] = -joint_step[2]; 
+  positions[3] = joint_step[3]; 
+  positions[4] = -joint_step[4]; 
 
-    // Publish back to ros to check if everything's correct
-    //msg.data=positions[4];
-    //steps.publish(&msg);
+  // Publish back to ros to check if everything's correct
 
-    steppers.moveTo(positions);
-    nh.spinOnce();
-    steppers.runSpeedToPosition(); // Blocks until all are in position
-    gripper.write(joint_step[5]);  // move gripper after manipulator reaches goal   
-  }
+  steppers.moveTo(positions);
+//  nh.spinOnce();
+  steppers.runSpeedToPosition(); // Blocks until all are in position
+//  gripper.write(joint_step[5]);  // move gripper after manipulator reaches goal   
   digitalWrite(13, HIGH-digitalRead(13)); //toggle led
-  joint_status = 0;
-  
+
+  pubGripState()
   nh.spinOnce();
   delay(1);
   

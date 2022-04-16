@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "moveo_moveit: 1 messages, 0 services")
+message(STATUS "moveo_moveit: 2 messages, 0 services")
 
 set(MSG_I_FLAGS "-Imoveo_moveit:/home/tom/Documents/robot/src/moveo_moveit/msg;-Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_moveo_moveit_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "moveo_moveit" "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg" ""
 )
 
+get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg" NAME_WE)
+add_custom_target(_moveo_moveit_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "moveo_moveit" "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,6 +35,12 @@ add_custom_target(_moveo_moveit_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(moveo_moveit
   "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/moveo_moveit
+)
+_generate_msg_cpp(moveo_moveit
+  "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/moveo_moveit
@@ -51,6 +62,8 @@ add_dependencies(moveo_moveit_generate_messages moveo_moveit_generate_messages_c
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg" NAME_WE)
 add_dependencies(moveo_moveit_generate_messages_cpp _moveo_moveit_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg" NAME_WE)
+add_dependencies(moveo_moveit_generate_messages_cpp _moveo_moveit_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(moveo_moveit_gencpp)
@@ -63,6 +76,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS moveo_moveit_generate_messages_cpp)
 ### Generating Messages
 _generate_msg_eus(moveo_moveit
   "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/moveo_moveit
+)
+_generate_msg_eus(moveo_moveit
+  "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/moveo_moveit
@@ -84,6 +103,8 @@ add_dependencies(moveo_moveit_generate_messages moveo_moveit_generate_messages_e
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg" NAME_WE)
 add_dependencies(moveo_moveit_generate_messages_eus _moveo_moveit_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg" NAME_WE)
+add_dependencies(moveo_moveit_generate_messages_eus _moveo_moveit_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(moveo_moveit_geneus)
@@ -96,6 +117,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS moveo_moveit_generate_messages_eus)
 ### Generating Messages
 _generate_msg_lisp(moveo_moveit
   "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/moveo_moveit
+)
+_generate_msg_lisp(moveo_moveit
+  "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/moveo_moveit
@@ -117,6 +144,8 @@ add_dependencies(moveo_moveit_generate_messages moveo_moveit_generate_messages_l
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg" NAME_WE)
 add_dependencies(moveo_moveit_generate_messages_lisp _moveo_moveit_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg" NAME_WE)
+add_dependencies(moveo_moveit_generate_messages_lisp _moveo_moveit_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(moveo_moveit_genlisp)
@@ -129,6 +158,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS moveo_moveit_generate_messages_lisp
 ### Generating Messages
 _generate_msg_nodejs(moveo_moveit
   "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/moveo_moveit
+)
+_generate_msg_nodejs(moveo_moveit
+  "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/moveo_moveit
@@ -150,6 +185,8 @@ add_dependencies(moveo_moveit_generate_messages moveo_moveit_generate_messages_n
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg" NAME_WE)
 add_dependencies(moveo_moveit_generate_messages_nodejs _moveo_moveit_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg" NAME_WE)
+add_dependencies(moveo_moveit_generate_messages_nodejs _moveo_moveit_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(moveo_moveit_gennodejs)
@@ -162,6 +199,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS moveo_moveit_generate_messages_node
 ### Generating Messages
 _generate_msg_py(moveo_moveit
   "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/moveo_moveit
+)
+_generate_msg_py(moveo_moveit
+  "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/moveo_moveit
@@ -182,6 +225,8 @@ add_dependencies(moveo_moveit_generate_messages moveo_moveit_generate_messages_p
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg" NAME_WE)
+add_dependencies(moveo_moveit_generate_messages_py _moveo_moveit_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg" NAME_WE)
 add_dependencies(moveo_moveit_generate_messages_py _moveo_moveit_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

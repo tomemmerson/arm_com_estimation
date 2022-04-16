@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg"
+messages_str = "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg;/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg"
 services_str = ""
 pkg_name = "moveo_moveit"
 dependencies_str = "sensor_msgs;std_msgs"

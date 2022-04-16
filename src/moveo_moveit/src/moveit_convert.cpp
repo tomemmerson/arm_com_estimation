@@ -5,7 +5,7 @@
 
 moveo_moveit::ArmJointState arm_steps;
 moveo_moveit::ArmJointState total;
-int stepsPerRevolution[6] = {22400,17000,66000,3200,14000,0};  // microsteps/revolution (using 16ths) from observation, for each motor
+int stepsPerRevolution[6] = {22400,17000,66000,1600,3200,0};  // microsteps/revolution (using 16ths) from observation, for each motor
 int joint_status = 0;
 double cur_angle[6];
 int joint_step[6];
@@ -91,7 +91,7 @@ void cmd_cb(const sensor_msgs::JointState& cmd_arm)
   total.position4 += arm_steps.position4;
   total.position5 += arm_steps.position5;
 
-  ROS_INFO_NAMED("test", "total_steps[2]: %f, total: %d", total_steps[2], total.position3);
+  // ROS_INFO_NAMED("test", "total_steps[2]: %f, total: %d", total_steps[2], total.position3);
 
   // ROS_INFO_STREAM("Done conversion to /joint_steps");
   joint_status = 1;
@@ -102,7 +102,7 @@ int main(int argc, char **argv)
 {
   ros::init(argc, argv, "moveo_moveit");
   ros::NodeHandle nh;
-  ROS_INFO_STREAM("In main function");
+  // ROS_INFO_STREAM("In main function");
   ros::Subscriber sub = nh.subscribe("/move_group/fake_controller_joint_states",1000,cmd_cb);
   ros::Publisher pub = nh.advertise<moveo_moveit::ArmJointState>("joint_steps",50);
   

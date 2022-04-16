@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "/home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/manifest.l"
   "/home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg/ArmJointState.l"
+  "/home/tom/Documents/robot/devel/share/roseus/ros/moveo_moveit/msg/GripperState.l"
   "CMakeFiles/moveo_moveit_generate_messages_eus"
 )
 

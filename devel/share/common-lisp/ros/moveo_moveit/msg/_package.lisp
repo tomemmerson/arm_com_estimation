@@ -3,5 +3,7 @@
   (:export
    "<ARMJOINTSTATE>"
    "ARMJOINTSTATE"
+   "<GRIPPERSTATE>"
+   "GRIPPERSTATE"
   ))
 

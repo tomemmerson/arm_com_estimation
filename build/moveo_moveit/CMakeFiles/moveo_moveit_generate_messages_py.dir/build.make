@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/tom/Documents/robot/build
 include moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_py.dir/progress.make
 
 moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_py: /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/_ArmJointState.py
+moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_py: /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/_GripperState.py
 moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_py: /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/__init__.py
 
 
@@ -62,13 +63,20 @@ moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_py: /home/tom/Documents/r
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG moveo_moveit/ArmJointState"
 	cd /home/tom/Documents/robot/build/moveo_moveit && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg -Imoveo_moveit:/home/tom/Documents/robot/src/moveo_moveit/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p moveo_moveit -o /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg
 
+/home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/_GripperState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/_GripperState.py: /home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG moveo_moveit/GripperState"
+	cd /home/tom/Documents/robot/build/moveo_moveit && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg -Imoveo_moveit:/home/tom/Documents/robot/src/moveo_moveit/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p moveo_moveit -o /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg
+
 /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/__init__.py: /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/_ArmJointState.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for moveo_moveit"
+/home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/__init__.py: /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/_GripperState.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for moveo_moveit"
 	cd /home/tom/Documents/robot/build/moveo_moveit && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg --initpy
 
 moveo_moveit_generate_messages_py: moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_py
 moveo_moveit_generate_messages_py: /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/_ArmJointState.py
+moveo_moveit_generate_messages_py: /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/_GripperState.py
 moveo_moveit_generate_messages_py: /home/tom/Documents/robot/devel/lib/python3/dist-packages/moveo_moveit/msg/__init__.py
 moveo_moveit_generate_messages_py: moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_py.dir/build.make
 

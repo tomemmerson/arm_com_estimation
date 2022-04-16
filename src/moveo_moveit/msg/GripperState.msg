@@ -1,0 +1,6 @@
+int16 f1_top_sensor
+int16 f1_left_sensor
+int16 f1_right_sensor
+int16 f2_top_sensor
+int16 f2_left_sensor
+int16 f2_right_sensor

@@ -34,6 +34,7 @@ find_package(Boost REQUIRED system filesystem date_time thread)
 add_message_files(
   FILES
   ArmJointState.msg
+  GripperState.msg
 )
 
 

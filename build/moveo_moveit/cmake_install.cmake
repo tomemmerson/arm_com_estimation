@@ -38,7 +38,10 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/moveo_moveit/msg" TYPE FILE FILES "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/moveo_moveit/msg" TYPE FILE FILES
+    "/home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg"
+    "/home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

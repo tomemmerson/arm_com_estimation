@@ -6,4 +6,6 @@
   :components ((:file "_package")
     (:file "ArmJointState" :depends-on ("_package_ArmJointState"))
     (:file "_package_ArmJointState" :depends-on ("_package"))
+    (:file "GripperState" :depends-on ("_package_GripperState"))
+    (:file "_package_GripperState" :depends-on ("_package"))
   ))

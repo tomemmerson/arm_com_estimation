@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/tom/Documents/robot/build
 include moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_lisp.dir/progress.make
 
 moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_lisp: /home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg/ArmJointState.lisp
+moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_lisp: /home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg/GripperState.lisp
 
 
 /home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg/ArmJointState.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
@@ -61,8 +62,14 @@ moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_lisp: /home/tom/Documents
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from moveo_moveit/ArmJointState.msg"
 	cd /home/tom/Documents/robot/build/moveo_moveit && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/tom/Documents/robot/src/moveo_moveit/msg/ArmJointState.msg -Imoveo_moveit:/home/tom/Documents/robot/src/moveo_moveit/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p moveo_moveit -o /home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg
 
+/home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg/GripperState.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
+/home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg/GripperState.lisp: /home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/tom/Documents/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from moveo_moveit/GripperState.msg"
+	cd /home/tom/Documents/robot/build/moveo_moveit && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/tom/Documents/robot/src/moveo_moveit/msg/GripperState.msg -Imoveo_moveit:/home/tom/Documents/robot/src/moveo_moveit/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p moveo_moveit -o /home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg
+
 moveo_moveit_generate_messages_lisp: moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_lisp
 moveo_moveit_generate_messages_lisp: /home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg/ArmJointState.lisp
+moveo_moveit_generate_messages_lisp: /home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg/GripperState.lisp
 moveo_moveit_generate_messages_lisp: moveo_moveit/CMakeFiles/moveo_moveit_generate_messages_lisp.dir/build.make
 
 .PHONY : moveo_moveit_generate_messages_lisp

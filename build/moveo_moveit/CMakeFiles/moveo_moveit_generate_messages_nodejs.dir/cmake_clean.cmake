@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/tom/Documents/robot/devel/share/gennodejs/ros/moveo_moveit/msg/ArmJointState.js"
+  "/home/tom/Documents/robot/devel/share/gennodejs/ros/moveo_moveit/msg/GripperState.js"
   "CMakeFiles/moveo_moveit_generate_messages_nodejs"
 )
 

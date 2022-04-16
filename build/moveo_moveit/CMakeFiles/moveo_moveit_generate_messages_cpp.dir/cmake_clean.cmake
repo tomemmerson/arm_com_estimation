@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/tom/Documents/robot/devel/include/moveo_moveit/ArmJointState.h"
+  "/home/tom/Documents/robot/devel/include/moveo_moveit/GripperState.h"
   "CMakeFiles/moveo_moveit_generate_messages_cpp"
 )
 

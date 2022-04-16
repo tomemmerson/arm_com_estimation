@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg/ArmJointState.lisp"
+  "/home/tom/Documents/robot/devel/share/common-lisp/ros/moveo_moveit/msg/GripperState.lisp"
   "CMakeFiles/moveo_moveit_generate_messages_lisp"
 )
 
