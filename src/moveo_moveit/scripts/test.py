@@ -72,6 +72,9 @@ class Dataloader():
         })
         self.current_test = self.data["tests"][-1]
 
+    def delete_current(self):
+        self.data["tests"].pop()
+
     def create_new_movement(self, name, start, goal):
         self.current_test["movements"][name] = {
             "start": {
@@ -220,5 +223,7 @@ while True:
 
     if s.replace(" ", "") == "y":
         loader.save()
+    else:
+        loader.delete_current()
 
 # stop_ros()
