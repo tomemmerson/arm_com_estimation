@@ -205,14 +205,14 @@ while True:
     loader.new_test(weights)
 
     input("Press Enter to grip object:")
-    rob.move_to(0, 0, math.pi/2, 0 , 0, 105) # Grip the object
+    rob.move_to(0, 0, math.pi/2, 0 , 0, 130) # Grip the object
 
     input("Press Enter to start:")
     # rotate wrist
-    rob.move_to(0, 0, math.pi/2, -math.pi/4, 0, 105, movement="spin_right")
-    rob.move_to(0, 0, math.pi/2, 0, 0, 105, movement="right_to_center")
-    rob.move_to(0, 0, math.pi/2, math.pi/4 , 0, 105, movement="spin_left") 
-    rob.move_to(0, 0, math.pi/2, 0 , 0, 105, movement="left_to_center")  
+    rob.move_to(0, 0, math.pi/2, -math.pi/4, 0, 130, movement="spin_right")
+    rob.move_to(0, 0, math.pi/2, 0, 0, 130, movement="right_to_center")
+    rob.move_to(0, 0, math.pi/2, math.pi/4 , 0, 130, movement="spin_left") 
+    rob.move_to(0, 0, math.pi/2, 0 , 0, 130, movement="left_to_center")  
 
     # Rotate wrist up/down
 

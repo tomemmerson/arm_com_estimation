@@ -1,16 +1,3 @@
-/* Purpose: This sketch uses ROS as well as MultiStepper, AccelStepper, and Servo libraries to control the 
- * BCN3D Moveo robotic arm. In this setup, a Ramps 1.4 shield is used on top of an Arduino Mega 2560.  
- * Subscribing to the following ROS topics: 1) joint_steps, 2) gripper_angle
- *    1) joint_steps is computed from the simulation in PC and sent Arduino via rosserial.  It contains
- *       the steps (relative to the starting position) necessary for each motor to move to reach the goal position.
- *    2) gripper_angle contains the necessary gripper angle to grasp the object when the goal state is reached 
- * 
- * Publishing to the following ROS topics: joint_steps_feedback
- *    1) joint_steps_feedback is a topic used for debugging to make sure the Arduino is receiving the joint_steps data
- *       accurately
- *       
- * Author: Jesse Weisberg
- */
 #if (ARDUINO >= 100)
   #include <Arduino.h>
 #else
@@ -19,7 +6,7 @@
 #include <ros.h>
 
 #include <moveo_moveit/ArmJointState.h>
-
+#include <HX711.h>
 #include <moveo_moveit/GripperState.h>
 #include <Servo.h> 
 #include <std_msgs/Bool.h>
@@ -68,6 +55,7 @@ AccelStepper joint5(1, E0_STEP_PIN, E0_DIR_PIN);
 
 Servo gripper;
 MultiStepper steppers;
+HX711 loadcell;
 
 int joint_step[6];
 int joint_status = 0;
@@ -75,10 +63,11 @@ int joint_status = 0;
 ros::NodeHandle nh;
 std_msgs::Int16 msg;
 moveo_moveit::GripperState gripState;
+std_msgs::Int16 moState;
 
-//instantiate publisher (for debugging purposes)
-//ros::Publisher steps("joint_steps_feedback",&msg);
+// Publisher for the sensor state of the gripper
 ros::Publisher feed("gripper_state",&gripState);
+ros::Publisher motorFeed("motor_state",&moState);
 
 void arm_cb(const moveo_moveit::ArmJointState& arm_steps){
   joint_status = 1;
@@ -95,11 +84,20 @@ void gripper_cb( const std_msgs::UInt16& cmd_msg){
   digitalWrite(13, HIGH-digitalRead(13));  // Toggle led  
 }
 
+// Publish the state of the gripper sensors
 void pubGripState() {
-  gripState.leftX = 10
-  gripState.leftY = 14
+  gripState.f1_top_sensor = analogRead(A3);
+  gripState.f1_left_sensor = analogRead(A9);
+  gripState.f1_right_sensor = analogRead(A4);
+  gripState.f2_top_sensor = analogRead(A10);
+  gripState.f2_left_sensor = analogRead(A5);
+  gripState.f2_right_sensor = analogRead(A11);
+  feed.publish(&gripState);
+}
 
-  feed.publish(&gripState)
+void pubRunningState(int running_state) {
+  moState.data = running_state;
+  motorFeed.publish(&moState);
 }
 
 //instantiate subscribers
@@ -107,9 +105,9 @@ ros::Subscriber<moveo_moveit::ArmJointState> arm_sub("joint_steps",arm_cb); //su
 ros::Subscriber<std_msgs::UInt16> gripper_sub("gripper_angle", gripper_cb); //subscribes to gripper position
 //to publish from terminal: rostopic pub gripper_angle std_msgs/UInt16 <0-180>
 
+
+
 void setup() {
-  //put your setup code here, to run once:
-  //Serial.begin(57600);
   pinMode(13,OUTPUT);
   joint_status = 1;
 
@@ -117,12 +115,13 @@ void setup() {
   nh.subscribe(arm_sub);
   nh.subscribe(gripper_sub);
   nh.advertise(feed);
+  nh.advertise(motorFeed);
 
   // Configure each stepper
   joint1.setMaxSpeed(1500);
   joint2.setMaxSpeed(750);
   joint3.setMaxSpeed(2000);
-  joint4.setMaxSpeed(400);
+  joint4.setMaxSpeed(10);
   joint5.setMaxSpeed(400);
 
   // Then give them to MultiStepper to manage
@@ -134,22 +133,26 @@ void setup() {
 
   // Configure gripper servo
   gripper.attach(11);
-  gripper.write(50);
-  
+  gripper.write(100);
   digitalWrite(13, 1); //toggle led
 
   long positions[5];  // Array of desired stepper positions must be long
   positions[0] = 0; // negated since the real robot rotates in the opposite direction as ROS
   positions[1] = 0; 
   positions[2] = 0; 
-  positions[3] = 400; 
-  positions[4] = 800; 
+  positions[3] = 55; 
+  positions[4] = 0; 
 
   steppers.moveTo(positions);
   steppers.runSpeedToPosition();
+  pubRunningState(0);
+  pubGripState();
+  
 }
 
 void loop() {
+  pubGripState();
+
   long positions[5];  // Array of desired stepper positions must be long
   positions[0] = joint_step[0]; // negated since the real robot rotates in the opposite direction as ROS
   positions[1] = joint_step[1]; 
@@ -160,13 +163,14 @@ void loop() {
   // Publish back to ros to check if everything's correct
 
   steppers.moveTo(positions);
-//  nh.spinOnce();
-  steppers.runSpeedToPosition(); // Blocks until all are in position
-//  gripper.write(joint_step[5]);  // move gripper after manipulator reaches goal   
-  digitalWrite(13, HIGH-digitalRead(13)); //toggle led
+  bool motors_running = steppers.run(); 
 
-  pubGripState()
-  nh.spinOnce();
-  delay(1);
+  if (motors_running) {
+    pubRunningState(0); 
+  } else {
+    pubRunningState(1);
+  }
   
+
+  nh.spinOnce();
 }
