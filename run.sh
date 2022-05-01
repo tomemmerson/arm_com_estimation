@@ -1,2 +1,2 @@
 source ./devel/setup.bash
-roslaunch moveo_moveit_config demo.launch
+python3 ./src/moveo_moveit/scripts/run_test.py
